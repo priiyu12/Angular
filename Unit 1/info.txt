@@ -1,0 +1,11 @@
+Unit 1
+
+Introduction to Typescript
+• Introduction to TypeScript
+• Datatypes and Variables
+• Operators
+• Decision Making and Loop
+• Function
+• Named function
+• Anonymous function
+• Using Classes and objects
