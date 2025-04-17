@@ -211,13 +211,24 @@ console.log(isAnagram("listen", "silent") ? "Anagram" : "Not anagram");
 //19. Create a typescript program which takes a string and count the number of vowels and consonants.
 function countVowelsConsonants(str: string) {
     let v = 0, c = 0;
-    for (let ch of str)
-      if (/[a-zA-Z]/.test(ch))
-        "aeiouAEIOU".includes(ch) ? v++ : c++;
-    return { v, c };
-  }
-  const res = countVowelsConsonants("Hello World");
-  console.log(`Vowels: ${res.v}, Consonants: ${res.c}`);
+    let vowels = "aeiouAEIOU";
+
+    for (let i = 0; i < str.length; i++) {
+        let ch = str.charAt(i);
+        if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if (vowels.indexOf(ch) !== -1) {
+                v++;
+            } else {
+                c++;
+            }
+        }
+    }
+
+    return { v: v, c: c };
+}
+
+const result = countVowelsConsonants("Hello World");
+console.log("Vowels: " + result.v + ", Consonants: " + result.c);
 
 //20. Create a typescript program which takes a string and count the number of words.
 function countWords(str: string): number {
