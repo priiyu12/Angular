@@ -1,0 +1,17 @@
+Unit 2
+
+Working with Directives
+  • Structural Directives
+    • ng-if
+    • ng-switch
+    • ng-for
+    
+  • Styles Directives
+    • ng-style
+      o Border Properties
+      o Font Properties
+      o Background Color
+      o Color
+    • ng-class
+    
+  • Custom Directives (overview)
