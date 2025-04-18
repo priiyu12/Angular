@@ -1,0 +1,20 @@
+Unit 4
+
+Angular Forms
+  • Template-driven forms
+  
+  • Reactive forms
+  
+  • Registering Control & Handling different Controls
+    • Label
+    • Textbox
+    • Checkbox
+    • Radio Button
+    • Select
+    • Submit Button
+    
+  • Custom Validation
+    • Required
+    • Maximum and Minimum length
+    • Pattern
+    • Email
