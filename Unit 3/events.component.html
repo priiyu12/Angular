@@ -1,0 +1,83 @@
+<!-- Click - Count Event -->
+<h3> Click Count </h3>
+<button (click)="onTap()"> Click Me </button>
+<h3> {{clickCount}} </h3>
+
+<!-- Click - Message Event -->
+<h3> Click Message </h3>
+<button (click)="showMessage()"> Click Me</button>
+<h2> {{ message }}</h2>
+
+<!-- Click - Input-Message Event -->
+<input #name>
+<button (click)="createMessage(name.value)"> Enter name </button>
+<h2>Hello, {{ message }}!</h2>
+
+<!-- Mouse - Hover Event -->
+<div (mousemove)="hoverCount()" style="background-color: cadetblue; height: 300px; width: 300px;">
+    <h3> Hover Count </h3>
+    <h2> {{ hoverCountValue }} </h2>
+  </div><br><br>
+  
+<!-- Selected - Colour Event -->
+<select (change)="selectColour($event.target.value)">
+    <option value="Red" selected>Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+    <option value="Pink">Pink</option>
+</select>
+<h2> Selected Color : {{ selectedColor }} </h2>
+
+<!-- Key - Down Event -->
+<input type="text" (keydown)="keyDownEvent($event.target.value)">
+<h2>Text : {{ keyDownValue }} </h2>
+
+<!-- Click - 10 Square Event -->
+<h3> Click Square </h3>
+<h3> {{ num }} </h3>
+<button (click)="showSquare()"> Click Me </button>
+<h3> {{ square }} </h3>
+
+<!-- Click - Image Display Event -->
+<h3> Display Image </h3>
+<button (click)="getImage()"> Get Image </button>
+<br><br>
+<img [src] = "imageUrl">
+
+<!-- Click - Change Background Colour Event -->
+<h3> Change Background Color </h3>
+<button (click)="changeBG()"> Change Background </button>
+
+<br><br>
+
+<!-- Mouse Move - Change Text - Colour Event -->
+<label (mousemove)="changeColor($event)" (mouseleave)="resetColor($event)">Move your mouse over me</label>
+<br><br>
+<label (mousemove)="onLabelMouseMove()" [style.backgroundColor]="labelBgColor">
+  Move over me to change background color to red
+</label>
+
+<!-- Mouse Events -->
+<button (click)="onClick()">Click</button>
+<br><br>
+<div (mouseenter)="onEnter($event)" (mouseleave)="onExit($event)">
+    Come Here!
+</div>
+<br><br>
+<button (dblclick)="onDClick()">Double Click</button>
+<br><br>
+
+<!-- Keyboard Events -->
+<input #text (keydown)="onDown(text.value)">
+<br>
+<p>You said: {{message1}}</p>
+<br><br>
+Make me blush<br>
+<input (keyup)="onUp($event)" style="height: 30; width: 80px;">
+<br><br>
+<div (keypress)="onKey($event)">
+    <input  placeholder=" Make me Blue!"> 
+</div>
+<br><br>
+
+<input (input)="onInput($event)" (change)="onChange($event)" (focus)="onFocus($event)" (blur)="onBlur($event)">
