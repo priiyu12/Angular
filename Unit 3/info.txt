@@ -1,0 +1,13 @@
+Unit 3
+
+Components and Data Binding
+  • Components
+    • Creating Components
+    • Creating Selector Tag
+    • Creating Template File
+    • Creating Style File
+    
+  • Data Binding
+    • String Interpolation
+    • Event Binding
+    • Property Binding
