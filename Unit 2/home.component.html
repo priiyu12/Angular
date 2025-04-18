@@ -1,0 +1,90 @@
+<h1 [ngStyle]="{ 'color': 'hotpink' }">
+    {{ title }}
+</h1>
+<br><br>
+
+<ol [ngStyle]="{ 'list-style-type' : 'upper-alpha' }">
+    <li *ngFor="let fruit of fruits">
+        <span [ngStyle]="{ 'color': 'green' }">
+            {{ fruit }}
+        </span>
+    </li>
+</ol>
+<br><br>
+
+<ol>
+    <li *ngFor="let user of users">
+        {{user.name}} - {{user.lastName}} : {{user.role}} - {{user.email}}
+    </li>
+</ol>
+<br><br>
+
+<ul *ngFor="let info of peopleByCountry">
+    <li> {{ info.country }} </li>
+    <ul>
+        <li *ngFor="let person of info.people">
+            {{person.name}}
+        </li>
+    </ul>
+</ul>
+<br><br>
+
+<hr>
+<table style = "border: 3px solid black; border-collapse: collapse;">
+    <tr>
+        <th colspan="7" style = "border: 1px solid black; border-collapse: collapse;">Employee List</th>
+    </tr>
+    <tr>
+        <th> Name </th>
+        <th> Index </th>
+        <th> Count </th>
+        <th> First </th>
+        <th> Last </th>
+        <th> Odd </th>
+        <th> Even </th>
+    </tr>
+    <tr *ngFor="let employee of employees; let i=index; let count=count; let first=first; let last=last; let even=even; let odd=odd;">
+        <td>{{employee.name}}</td>
+        <td>{{i}}</td>
+        <td>{{count}}</td>
+        <td>{{first}}</td>
+        <td>{{last}}</td>
+        <td>{{even}}</td>
+        <td>{{odd}}</td>
+    </tr>
+</table>
+<br><br>
+
+<ul *ngFor="let user of users">
+    <li *ngIf="user.role === 'User'">
+        {{user.role}} : {{user.firstName}} - {{user.lastName}} - {{user.email}}
+    </li>
+</ul>
+<br><br>
+
+<ul *ngFor="let person of people">
+    <li *ngIf="person.age >  30 && person.country === 'USA' || person.age >  30 && person.country === 'UK'">
+        {{person.country}} : {{person.age}} - {{person.name}}
+    </li>
+</ul>
+<br><br>
+
+<ul *ngFor="let person of people" [ngSwitch]="person.country">
+    <li *ngSwitchCase=" 'UK' " [ngClass] =" 'a' "> 
+        {{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase=" 'USA' " [ngClass] =" 'b' ">
+         {{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase=" 'HK' " [ngClass] =" 'c' "> 
+        {{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchDefault [ngClass] =" 'd' "> 
+        {{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+
+<div [ngClass]="{ 'error': isError, 'success': !isError }">
+    Message Box
+</div>
+  

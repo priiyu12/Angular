@@ -1,0 +1,24 @@
+.a{
+    color: lightseagreen;
+}
+
+.b{
+    color: red;
+}
+
+.c{
+    color: yellowgreen;
+}
+
+.d{
+    color: blue;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+  }
+  .success {
+    color: green;
+  }
+  
