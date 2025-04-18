@@ -1,0 +1,115 @@
+<h3 [ngStyle]="{'text-align' : 'center'}">Login - Template Driven Form</h3><br><br>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+
+    <div>
+        <label for="title">Title</label>
+        <select formControlName="title">
+            <option value="" disabled selected>Select</option>
+            <option value="Mr">Mr</option>
+            <option value="Miss">Miss</option>
+            <option value="Mrs">Mrs</option>
+        </select>
+        <div *ngIf="submitted && f.title.errors" class="error">
+            <span *ngIf="f.title.errors.required">Title is required! Select one</span>
+        </div>
+    </div>
+    <br>
+    <!-- First Name -->
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName"/>
+        <div *ngIf="submitted && f.firstName.errors" class="error">   
+            <span *ngIf="f.firstName.errors.required">First Name is required</span>
+            <span *ngIf ="f.firstName.errors.pattern"> Enter valid First Name </span>
+        </div>
+    </div>
+    <br>
+    <!-- Last Name -->
+    <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName"/>
+            <div *ngIf="submitted && f.lastName.errors" class="error">  
+                <span *ngIf="f.lastName.errors.required">Last Name is required!</span>
+            </div>
+    </div>
+    <br>
+    <!-- Gender -->
+    <div>
+        <label>Gender</label><br/>
+        <input type="radio" value="Male" formControlName="gender" /> Male
+        <input type="radio" value="Female" formControlName="gender" /> Female
+        <input type="radio" value="Other" formControlName="gender" /> Other
+        <div *ngIf="submitted && f.gender.errors" class='error'>
+            <span>Gender is required!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Mobile Number -->
+    <div>
+        <label for="mobileNum">Mobile Number</label>
+        <input type="text" formControlName="mobileNum"/>
+        <div *ngIf="submitted && f.mobileNum.errors" class="error">
+            <span *ngIf="f.mobileNum.errors.required">Mobile Number is required!</span>
+            <span *ngIf="f.mobileNum.errors.pattern">Enter a valid 10-digit Phone Number!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Email -->
+    <div>
+        <label for="email">Email ID</label>
+        <input type="email" formControlName="email"/>
+        <div *ngIf="submitted && f.email.errors" class="error">
+            <span *ngIf="f.email.errors.required">Email ID is required!</span>
+            <span *ngIf="f.email.errors.email">Enter a valid Email ID!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Hobbies -->
+    <div>
+        <label>Hobbies</label><br/>
+        <div [formGroup]="registerForm.get('hobbies')">
+          <input type="checkbox" formControlName="reading" /> Reading
+          <input type="checkbox" formControlName="gaming" /> Gaming
+          <input type="checkbox" formControlName="sports" /> Sports
+        </div>
+        <div *ngIf="submitted && !isHobbySelected()" class="error">
+          <span>At least one hobby is required!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Password -->
+    <div>
+      <label for="password">Password</label>
+      <input type="password" formControlName="password"/>
+      <div *ngIf="submitted && f.password.errors" class="error">
+        <span *ngIf="f.password.errors.required">Password is required!</span>
+        <span *ngIf="f.password.errors.pattern">Password should be 8-15 alphanumeric characters!</span>
+      </div>
+    </div>
+    <br>
+    <!-- Confirm Password -->
+    <div>
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" />
+        <div *ngIf="submitted && registerForm.errors?.passwordMismatch" class="error">
+          <span>Passwords do not match!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Accept Terms -->
+    <div>
+        <input type="checkbox" formControlName="acceptTerms"/>
+        <b><label for="acceptTerms">Accept the terms & conditions</label></b>
+        <div *ngIf="submitted && f.acceptTerms.errors" class="error">
+            <span>Compulsory to accept terms & conditions!</span>
+        </div>
+    </div>
+    <br>
+    <!-- Buttons -->
+    <div class="form-group buttons">
+      <button type="submit">Submit</button>
+      <button type="reset" (click)="submitted = false; registerForm.setErrors(null)">Reset</button>
+    </div>
+  </div>
+</form>
