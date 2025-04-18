@@ -1,0 +1,29 @@
+.list{
+    color : purple;
+    font-size: 20px;
+}
+
+.a{
+    color : red;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.b{
+    color : green;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.c{
+    color : blue;
+    text-align: right;
+    text-transform: lowercase;
+    font-size: 24px;
+}
+
+.d{
+    color : cyan;
+    text-align: center;
+    font-size: 50px;
+}
