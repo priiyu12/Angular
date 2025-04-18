@@ -1,0 +1,79 @@
+//Generate components - On terminal
+
+ng generate component home
+ng generate component login
+ng generate component profile
+ng generate component contact
+------------------------------------
+
+//Create a routing module - On terminal (If new Angular Version!)
+
+ng generate module app-routing --flat --module=app
+------------------------------------
+
+//Configure routes
+------------app-routing.module.ts------------
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+
+const routes: Routes = [
+  {path: 'home', component:HomeComponent},
+  {path: 'profile', component:ProfileComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+  
+}
+------------------------------------
+
+//Update the root template:
+------------app.component.html------------
+
+<nav [ngClass]="'nav-bar'">
+  <h3><a routerLink="home">Home</a></h3> |
+  <h3><a routerLink="profile">Profile</a></h3> |
+  <h3><a routerLink="contact">Contact</a></h3> |
+  <h3><a routerLink="">Log Out</a></h3>
+</nav>
+
+<router-outlet></router-outlet>
+
+------------app.component.css------------
+
+.nav-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: black;
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+  
+  .nav-bar h3 {
+    margin: 0;
+  }
+  
+  .nav-bar a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-bar a:hover {
+    color: hotpink;
+  }
+------------------------------------
+  
