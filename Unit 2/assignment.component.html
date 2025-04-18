@@ -1,0 +1,183 @@
+<!-- 1. Create one project in angular and shows title on browser as ANGULAR. -->
+
+<h1 [ngStyle]="{'color': 'hotpink', 'text-align': 'center'}">
+    {{ title }} 
+</h1>
+<br><hr><br>
+
+<!-- 2. Create one project in angular with following details:
+ts file
+    Make an array of string with values : P, Q, R, S, T
+Html File
+    Traverse that array using ngFor loop -->
+
+<ol>
+    <li *ngFor="let letter of letters">
+        {{ letter }}
+    </li>
+</ol>
+<br><hr><br>
+
+<!-- 3. Create one project in angular with following details:
+ts File
+    Make one student array/dictonary like name:Alex, name:Eric, name:Ivan
+Html File
+    Traverse that array using ngFor loop [use ul and li also apply css class in ul tag]
+Css File
+    make one css class with attributes color and font-size -->
+
+<ol>
+    <li *ngFor="let name of studentsName" [ngClass]=" 'list' ">
+        {{ name.name }}
+    </li>
+</ol>
+<br><hr><br>
+
+<!-- 4. Create one project in angular with following details:
+ts File
+    Make one student array/dictonary with following structure
+    name:Alex, rollno:101, marks:80
+    name:Eric, rollno:102, marks:90
+    name:Ivan, rollno:103, marks:100
+Html File
+    Traverse that array using ngFor loop and show only rollno and marks attributes -->
+
+<ol>
+    <li *ngFor="let student of students" [ngClass]=" 'list' ">
+        {{ student.rollno }} - {{ student.marks }}
+    </li>
+</ol>
+<br><hr><br>
+
+<!-- 5. Create one project in angular with following details:
+ts File
+    Make one studentdetails nested array/dictonary with following structure
+    Country: US with three students 
+        [name: Alex, Age: 17] 
+        [name: Eric, Age: 18]
+        [name: Ivan, Age: 16]
+    Country: UK with two students 
+        [name: Alexa, Age: 21] 
+        [name: Joy, Age: 18]
+Html File
+    Traverse that array using ngFor nested loop -->
+
+<ol>
+    <li *ngFor="let data of studentdetails"> 
+        {{ data.country }}
+        <ul>
+            <li *ngFor="let student of data.students"> 
+                {{ student.name }} - {{ student.age }}
+            </li>
+        </ul>
+    </li>
+</ol>
+<br><hr><br>
+
+<!-- 6. Create one project in angular with following details:
+ts File
+    Make one student array/dictonary with following structure
+    name:Alex, rollno:101, marks:80
+    name:Eric, rollno:102, marks:90 
+    name:Ivan, rollno:103, marks:100
+Html File
+    Traverse that array using ngFor loop and show index, count first, last, odd and even elements [use table to ptint array] -->
+<table border="1" width="100%" border-collapse="collapse">
+    <tr>
+        <th>Index</th>
+        <th>Roll_No</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Count</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Odd</th>
+        <th>Even</th>
+    </tr>
+    <tr *ngFor="let student of students; let i = index; let first = first; let last = last; let odd = odd; let even = even">
+        <td>{{ i }}</td>
+        <td>{{ student.rollno }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.marks }}</td>
+        <td>{{ i + 1 }}</td>
+        <td>{{ first }}</td>
+        <td>{{ last }}</td>
+        <td>{{ odd }}</td>
+        <td>{{ even }}</td>
+    </tr>
+</table>
+<br><hr><br>
+
+<!-- 7. Create one project in angular with following details:
+ts File
+    Make one employee array/dictonary with following structure
+        id : 101 , name:Alex, salary:8000
+        id : 102 , name:Eric, salary:7000
+        id : 103 , name:Ivan, salary:6000
+Html File
+    Print the details of emplyees whose salary is greater than 3000 . -->
+
+<ol>
+<ng-container *ngFor="let employee of employees">
+    <li *ngIf="employee.salary > 7500">
+    {{ employee.id }} - {{ employee.name }} - {{ employee.salary }}
+    </li>
+</ng-container>
+</ol> 
+<br><hr><br>
+
+<!-- 8. Create one project in angular with following details:
+ts File
+    Make one Book array/dictonary with following structure
+    movie_id : 11 , movie_name: Suravanshi , actor_name : Akshay
+    movie_id : 12 , movie_name: Antim, actor_name : Salman
+    movie_id : 13 , movie_name: Simmba , actor_name : Ranveer
+    movie_id : 14 , movie_name: Veer zara, actor_name : Sharukh
+
+Use ngStyle to present the above array with following properties:
+- color , background color , font size , border , text align , text transform . -->
+
+<ul>
+    <li *ngFor="let movie of movies" 
+    [ngStyle]="{
+    'color' : 'orange',
+    'background-color' : 'black',
+    'font-size' : '25px',
+    'border' : '2px solid yellow',
+    'text-align' : 'center',
+    'text-transform' : 'uppercase'
+    }">
+        {{ movie.movie_id }} - {{ movie.movie_name }} - {{ movie.actor_name }}
+    </li>
+</ul>
+<br><hr><br>
+
+<!-- 9. Create one project in angular with following details:
+ts File
+    Make one Book array/dictonary with following structure
+    book_id : 11 , author_name:Alex, no_of_pages:800
+    book_id : 12 , author_name:irvine, no_of_pages:400
+    book_id : 13 , author_name:adward, no_of_pages:900
+    book_id : 14 , author_name:max, no_of_pages:100
+Html File
+    Print the details of book with the help of ngSwitch according to the followng condition(ngSwitch,ngClass)-
+        1. when page no is 800 then data sould be red,center aligned and capitalise .
+        2. when page no is 400 then data sould be green,left aligned and uppercase.
+        3. when page no is 900 then data sould be blue,right aligned and font size 24px.
+        4. In Defaultcase data sould be cyan color and font size is 50px. -->
+
+<ul *ngFor="let book of books" [ngSwitch]="book.no_of_pages">
+    <li *ngSwitchCase="800" [ngClass]=" 'a' ">
+        {{ book.book_id }} - {{ book.author_name }} - {{ book.no_of_pages }}
+    </li>
+    <li *ngSwitchCase="400" [ngClass]=" 'b' ">
+        {{ book.book_id }} - {{ book.author_name }} - {{ book.no_of_pages }}
+    </li>
+    <li *ngSwitchCase="900" [ngClass]=" 'c' ">
+        {{ book.book_id }} - {{ book.author_name }} - {{ book.no_of_pages }}
+    </li>
+    <li *ngSwitchDefault [ngClass]=" 'd' ">
+        {{ book.book_id }} - {{ book.author_name }} - {{ book.no_of_pages }}
+    </li>
+</ul>
+<br><hr><br>
